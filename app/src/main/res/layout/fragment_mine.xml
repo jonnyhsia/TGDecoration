@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".page.home.mine.MineFragment">
+
+    <com.tugou.decoration.widget.design.SpeedScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"
+        android:paddingTop="148dp"
+        android:scrollbars="none">
+
+        <com.jonnyhsia.labelview.LabelGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:labelDivider="@drawable/divider"
+            app:labelDividerPaddingSecondary="20dp"
+            app:orientation="vertical"
+            app:showLabelDividers="middle">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycleEntry"
+                android:layout_width="match_parent"
+                android:layout_height="192dp"
+                android:nestedScrollingEnabled="false"
+                android:paddingStart="8dp"
+                android:paddingTop="10dp"
+                android:paddingEnd="8dp"
+                android:paddingBottom="10dp"
+                tools:itemCount="8"
+                tools:layoutManager="GridLayoutManager"
+                tools:listitem="@layout/item_mine_entry"
+                tools:spanCount="4" />
+
+            <com.tugou.decoration.widget.recyclerview.BounceRecyclerView
+                android:id="@+id/recycleActivity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:overScrollMode="never"
+                android:paddingStart="20dp"
+                android:paddingTop="20dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="16dp"
+                android:visibility="gone"
+                app:sectionType="header"
+                tools:layoutManager="LinearLayoutManager"
+                tools:listitem="@layout/item_mine_activity"
+                tools:orientation="horizontal"
+                tools:visibility="visible" />
+
+            <com.jonnyhsia.labelview.LabelView
+                android:id="@+id/labelFeedback"
+                style="@style/MineLabel"
+                app:label="帮助与意见反馈" />
+
+            <com.jonnyhsia.labelview.LabelView
+                android:id="@+id/labelInviteFriend"
+                style="@style/MineLabel"
+                app:label="分享兔狗家，邀请有礼" />
+
+            <com.jonnyhsia.labelview.LabelView
+                android:id="@+id/labelSettings"
+                style="@style/MineLabel"
+                android:layout_marginBottom="64dp"
+                app:label="设置" />
+
+            <com.tugou.decoration.widget.foundation.TGTextView
+                android:id="@+id/tvAppInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:textColor="@color/textIgnorable"
+                android:textSize="12sp"
+                app:showDivider="false" />
+
+        </com.jonnyhsia.labelview.LabelGroup>
+
+    </com.tugou.decoration.widget.design.SpeedScrollView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="148dp"
+        android:background="@android:color/white"
+        android:paddingTop="12dp">
+
+        <ImageButton
+            android:id="@+id/btnSettings"
+            style="@style/TGImageButton.Mine"
+            android:layout_marginEnd="16dp"
+            android:contentDescription="TODO" android:src="@drawable/ic_settings"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/btnRelationship"
+            style="@style/TGImageButton.Mine"
+            android:layout_marginEnd="16dp"
+            android:contentDescription="TODO" android:src="@drawable/ic_my_relationship"
+            app:layout_constraintEnd_toStartOf="@id/btnSettings"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/btnEditProfile"
+            style="@style/TGImageButton.Mine"
+            android:layout_marginEnd="16dp"
+            android:contentDescription="TODO" android:src="@drawable/ic_edit_profile"
+            app:layout_constraintEnd_toStartOf="@id/btnRelationship"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imgAvatar"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:contentDescription="TODO" tools:src="@drawable/placeholder_rounded_gray" />
+
+        <com.tugou.decoration.widget.foundation.TGTextView
+            android:id="@+id/tvUsername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:textAppearance="@style/TGTextAppearance.BigText"
+            app:layout_constraintBottom_toTopOf="@id/tvDecorProgress"
+            app:layout_constraintStart_toEndOf="@id/imgAvatar"
+            app:layout_constraintTop_toTopOf="@id/imgAvatar"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:tg_font="bold"
+            tools:text="高能的土豆" />
+
+        <com.tugou.decoration.widget.foundation.TGTextView
+            android:id="@+id/tvDecorProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="装修进度：已经入住"
+            android:textAppearance="@style/TGTextAppearance.Caption"
+            app:layout_constraintBottom_toBottomOf="@id/imgAvatar"
+            app:layout_constraintStart_toStartOf="@id/tvUsername"
+            app:layout_constraintTop_toBottomOf="@id/tvUsername" />
+
+        <ImageView
+            android:id="@+id/imgTugouVip"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginEnd="16dp"
+            android:contentDescription="TODO" android:src="@drawable/ic_tugou_vip"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/imgAvatar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/imgAvatar"
+            tools:visibility="visible" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/groupProfile"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:constraint_referenced_ids="imgAvatar,tvUsername,tvDecorProgress"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/divider"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

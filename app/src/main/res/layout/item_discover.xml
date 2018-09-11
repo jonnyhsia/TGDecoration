@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingTop="20dp"
+    android:paddingBottom="10dp">
+
+    <com.tugou.decoration.widget.foundation.TGTextView
+        android:id="@+id/tvDiscoverTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:textAppearance="@style/TGTextAppearance.SectionTitle"
+        app:tg_font="bold"
+        tools:text="发现兔狗家装" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycleDiscoverBanner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="20dp"
+        android:nestedScrollingEnabled="false" />
+
+    <com.tugou.decoration.widget.recyclerview.BounceRecyclerView
+        android:id="@+id/recycleDiscoverEntry"
+        android:layout_width="match_parent"
+        android:layout_height="92dp"
+        android:clipToPadding="false"
+        android:nestedScrollingEnabled="false"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp" />
+
+</LinearLayout>

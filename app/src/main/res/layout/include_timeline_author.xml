@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="@layout/item_muse_album">
+
+    <ImageView
+        android:id="@+id/imgAvatar"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="TODO" tools:src="@drawable/placeholder_rounded_gray" />
+
+    <com.tugou.decoration.widget.foundation.TGTextView
+        android:id="@+id/tvUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="3dp"
+        android:paddingStart="12dp"
+        android:paddingTop="4dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="4dp"
+        android:textColor="@color/textPrimary"
+        app:layout_constraintBottom_toBottomOf="@id/imgAvatar"
+        app:layout_constraintStart_toEndOf="@id/imgAvatar"
+        app:layout_constraintTop_toTopOf="@id/imgAvatar"
+        app:tg_font="medium"
+        tools:text="高能的土豆" />
+
+    <TextView
+        android:id="@+id/btnFollow"
+        style="@style/TGButton"
+        android:layout_width="wrap_content"
+        android:paddingBottom="4dp"
+        android:paddingTop="4dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/selector_follow_button"
+        android:text="关注"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@id/imgAvatar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/imgAvatar" />
+
+</merge>

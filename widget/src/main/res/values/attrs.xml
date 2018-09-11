@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="BottomNavigation">
+        <attr name="tg_textColor" format="reference" />
+        <attr name="tg_ripple" format="reference" />
+        <attr name="tg_navDivider" format="reference" />
+        <attr name="tg_textAppearance" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="TGImageView">
+        <attr name="tg_aspectRatio" format="float" />
+    </declare-styleable>
+
+    <declare-styleable name="TGTextView">
+        <attr name="tg_font" format="enum">
+            <enum name="regular" value="0" />
+            <enum name="medium" value="1" />
+            <enum name="bold" value="2" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="SpeedScrollView">
+        <attr name="tg_speed" format="float" />
+    </declare-styleable>
+
+    <declare-styleable name="ShadowView">
+        <attr name="constantShadowTranslationY" format="dimension" />
+        <attr name="variableShadowTranslationY" format="dimension" />
+        <attr name="scaleDown" format="float" />
+        <attr name="bigBlurRadius" format="float" />
+        <attr name="smallBlurRadius" format="float" />
+    </declare-styleable>
+
+    <declare-styleable name="TextTabLayout">
+        <attr name="tg_tabSpacing" format="dimension"/>
+        <attr name="tg_tabTextSize" format="dimension"/>
+        <attr name="tg_tabTextSelectedSize" format="dimension"/>
+        <attr name="tg_tabTextColor" format="color|reference"/>
+        <attr name="tg_tabTextSelectedColor" format="color|reference"/>
+    </declare-styleable>
+
+    <declare-styleable name="AutoSizeViewPager">
+        <attr name="measureMode" format="enum">
+            <enum name="fast" value="1" />
+            <enum name="accurate" value="2" />
+        </attr>
+    </declare-styleable>
+</resources>

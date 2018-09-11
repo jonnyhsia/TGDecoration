@@ -1,0 +1,76 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion versions.compileSdk
+
+    defaultConfig {
+        applicationId "com.tugou.decoration"
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdk
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(':core')
+    implementation project(':router')
+    implementation project(':model')
+    implementation project(':widget')
+
+    implementation deps.foundation.kotlin
+    implementation deps.support.appcompat
+    implementation deps.support.material
+    implementation deps.support.constraint
+    implementation deps.support.lifecycle_ext
+    kapt deps.support.lifecycle_compiler
+
+    // Ktx
+    implementation deps.support.ktx
+    implementation deps.support.fragment_ktx
+
+    // Tugou libs
+    implementation project(':kit')
+
+    // RxJava + RxBinding
+    implementation deps.foundation.rxjava
+    implementation deps.foundation.rxandroid
+    implementation deps.foundation.rxbinding
+
+    // 事件总线
+    implementation 'org.greenrobot:eventbus:3.1.1'
+
+    // Glide 图片加载
+    implementation 'com.github.bumptech.glide:glide:4.8.0'
+    kapt 'com.github.bumptech.glide:compiler:4.8.0'
+
+    // label view
+    implementation 'com.newe:label-view:0.2.5-alpha3'
+
+    // MultiType
+    implementation 'com.tugou.andromeda:multitype:3.4.4-SNAPSHOT'
+    implementation 'com.tugou.andromeda:multitype-ktx:3.4.4-SNAPSHOT'
+
+    implementation 'com.github.rubensousa:gravitysnaphelper:1.5'
+
+    // 内存泄漏监测
+    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.5.4'
+
+    // Test
+    testImplementation deps.test.junit
+    androidTestImplementation deps.test.runner
+    androidTestImplementation deps.test.espresso
+}

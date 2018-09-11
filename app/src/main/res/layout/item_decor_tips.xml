@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="16dp"
+    tools:background="@android:color/white">
+
+    <com.tugou.decoration.widget.foundation.TGTextView
+        android:id="@+id/tvTitleDecorTips"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:letterSpacing="0.03"
+        android:text="装修攻略"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tg_font="bold" />
+
+    <com.tugou.decoration.widget.design.TextTabLayout
+        android:id="@+id/tabProgressTips"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintBottom_toBottomOf="@id/tvTitleDecorTips"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvTitleDecorTips"
+        app:tg_tabSpacing="16dp"
+        app:tg_tabTextColor="@color/textCaption"
+        app:tg_tabTextSelectedColor="@color/textPrimary"
+        app:tg_tabTextSelectedSize="14sp"
+        app:tg_tabTextSize="14sp" />
+
+    <com.tugou.decoration.widget.foundation.AutoSizeViewPager
+        android:id="@+id/pagerProgressTips"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:overScrollMode="never"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTitleDecorTips"
+        app:measureMode="fast"
+        tools:layout_height="160dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

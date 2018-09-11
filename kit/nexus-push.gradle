@@ -1,0 +1,45 @@
+// apply plugin: 'maven'
+
+// def localMavenRepo = 'file://' + new File(System.getProperty('user.home'), '.m2/repository').absolutePath
+
+// task androidSourcesJar(type: Jar) {
+//     classifier = 'sources'
+//     from android.sourceSets.main.java.sourceFiles
+// }
+
+// artifacts {
+//     archives androidSourcesJar
+// }
+
+// uploadArchives {
+//     repositories {
+//         mavenDeployer {
+//             pom.groupId = 'com.tugou.andromeda'
+//             pom.artifactId = 'kit'
+//             pom.version = rootProject.pomVersionName
+
+//             if (Boolean.parseBoolean(modeLocalMaven)) {
+//                 repository(url: localMavenRepo)
+//             } else {
+//                 if (pom.version.contains('SNAPSHOT')) {
+//                     repository(url: "http://192.168.51.113:8081/repository/maven-snapshots/") {
+//                         authentication(userName: "admin", password: "admin123")
+//                     }
+//                 } else {
+//                     repository(url: "http://192.168.51.113:8081/repository/maven-releases/") {
+//                         authentication(userName: "admin", password: "admin123")
+//                     }
+//                 }
+//             }
+
+//             pom.project {
+//                 licenses {
+//                     license {
+//                         name 'www.tugou.com, all right reserved'
+//                         url 'http://www.tugou.com'
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }

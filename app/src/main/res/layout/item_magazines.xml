@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="16dp">
+
+    <com.tugou.decoration.widget.foundation.TGTextView
+        android:id="@+id/tvMagazineTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:textAppearance="@style/TGTextAppearance.SectionTitle"
+        app:tg_font="bold"
+        tools:text="兔狗の家装周刊" />
+
+    <com.tugou.decoration.widget.recyclerview.BounceRecyclerView
+        android:id="@+id/recycleMagazine"
+        android:layout_width="match_parent"
+        android:layout_height="212dp"
+        android:layout_marginTop="20dp"
+        android:clipToPadding="false"
+        android:nestedScrollingEnabled="false"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp" />
+
+</FrameLayout>

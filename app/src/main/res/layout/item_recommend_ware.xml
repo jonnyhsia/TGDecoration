@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    tools:padding="20dp">
+
+    <ImageView
+        android:id="@+id/imgWare"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="TODO" android:scaleType="centerCrop"
+        app:layout_constraintDimensionRatio="w,3:4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/placeholder_rounded_gray" />
+
+    <com.tugou.decoration.widget.foundation.TGTextView
+        android:id="@+id/tvWareTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="1dp"
+        android:ellipsize="end"
+        android:letterSpacing="0.03"
+        android:lineSpacingExtra="3dp"
+        android:maxLines="2"
+        android:textColor="@color/textPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imgWare"
+        app:tg_font="bold"
+        tools:text="SÖDERHAMN 索德汉 - 三人沙发, 芬斯塔 天蓝色" />
+
+    <com.tugou.decoration.widget.foundation.TGTextView
+        android:id="@+id/tvWareDescription"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="1dp"
+        android:ellipsize="end"
+        android:letterSpacing="0.02"
+        android:lineSpacingExtra="2dp"
+        android:maxLines="2"
+        android:textColor="#6B000000"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvWareTitle"
+        app:tg_font="medium"
+        tools:text="GUALÖV 格拉瓦 - 储物桌 黑色" />
+
+    <TextView
+        android:id="@+id/tvWarePrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:includeFontPadding="false"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvWareDescription"
+        tools:text="¥ 19.90" />
+
+    <TextView
+        android:id="@+id/tvWarePriceLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="6dp"
+        android:background="@drawable/shape_price_label"
+        android:includeFontPadding="false"
+        android:letterSpacing="0.03"
+        android:paddingStart="8dp"
+        android:paddingTop="4dp"
+        android:paddingEnd="8dp"
+        android:paddingBottom="4dp"
+        android:textColor="@android:color/white"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/tvWarePrice"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvWarePrice"
+        tools:text="特惠抢购" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

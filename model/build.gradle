@@ -1,0 +1,48 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion 28
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation deps.foundation.kotlin
+    implementation deps.support.appcompat
+
+    // RxJava
+    implementation deps.foundation.rxjava
+    implementation deps.foundation.rxandroid
+
+    implementation deps.foundation.retrofit
+    implementation deps.foundation.retrofit_rx_adapter
+    implementation deps.foundation.retrofit_gson_converter
+    implementation deps.foundation.okhttp_logging
+
+    implementation deps.test.stetho
+    implementation deps.test.stetho_okhttp
+
+    // Test
+    testImplementation deps.test.junit
+    androidTestImplementation deps.test.runner
+    androidTestImplementation deps.test.espresso
+}

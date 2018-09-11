@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="96dp"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/imgAvatar"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:contentDescription="TODO" tools:src="@drawable/placeholder_rounded_gray" />
+
+    <com.tugou.decoration.widget.foundation.TGTextView
+        android:id="@+id/tvUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:letterSpacing="0.02"
+        android:textAlignment="center"
+        android:textColor="@color/textPrimary"
+        android:textSize="13sp"
+        app:tg_font="medium"
+        tools:text="高能的土豆" />
+
+    <TextView
+        android:id="@+id/tvUserRank"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textAlignment="center"
+        android:textSize="11sp"
+        tools:text="3000次收藏" />
+
+</LinearLayout>

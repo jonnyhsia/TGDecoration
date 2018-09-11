@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="16dp"
+    android:paddingBottom="16dp">
+
+    <com.tugou.decoration.widget.foundation.TGTextView
+        android:id="@+id/tvCollectionTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:textAppearance="@style/TGTextAppearance.SectionTitle"
+        app:tg_font="bold"
+        tools:text="合辑标题" />
+
+    <com.tugou.decoration.widget.recyclerview.BounceRecyclerView
+        android:id="@+id/recycleCollection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:clipToPadding="false"
+        android:nestedScrollingEnabled="false"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        tools:background="@drawable/placeholder_rounded_gray"
+        tools:layout_height="200dp" />
+
+</FrameLayout>

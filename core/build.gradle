@@ -1,0 +1,46 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion 28
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(':router')
+
+    implementation deps.foundation.kotlin
+    implementation deps.support.appcompat
+    implementation deps.support.lifecycle_ext
+
+    // 状态栏适配各系统版本与手机型号
+    implementation deps.ui.status
+
+    // RxJava
+    implementation deps.foundation.rxjava
+    implementation deps.foundation.rxandroid
+
+    // Ktx
+    implementation deps.support.ktx
+
+    // Test
+    testImplementation deps.test.junit
+    androidTestImplementation deps.test.runner
+    androidTestImplementation deps.test.espresso
+}

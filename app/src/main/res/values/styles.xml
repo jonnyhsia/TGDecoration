@@ -1,0 +1,119 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@android:color/white</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowBackground">@android:color/white</item>
+    </style>
+
+    <style name="XPreview" parent="Theme.AppCompat.Light.Dialog.MinWidth">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="TGImageButton" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:scaleType">fitCenter</item>
+    </style>
+
+    <style name="TGImageButton.Mine">
+        <item name="android:padding">0dp</item>
+        <item name="android:layout_width">28dp</item>
+        <item name="android:layout_height">28dp</item>
+    </style>
+
+    <style name="TGTextAppearance" parent="TextAppearance.AppCompat.Body1" />
+
+    <style name="TGTextAppearance.BigText" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">@color/textPrimary</item>
+        <item name="android:letterSpacing">0.04</item>
+        <item name="android:lineSpacingExtra">6dp</item>
+    </style>
+
+    <style name="TGTextAppearance.Caption">
+        <item name="android:textSize">13sp</item>
+        <item name="android:letterSpacing">0.03</item>
+        <item name="android:textColor">@color/textCaption</item>
+    </style>
+
+    <style name="TGTextAppearance.MineLabel">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:letterSpacing">0.04</item>
+    </style>
+
+    <style name="MineLabel">
+        <item name="innerMarginStart">20dp</item>
+        <item name="android:background">?selectableItemBackground</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">54dp</item>
+        <item name="iconEnd">@drawable/ic_arrow_right</item>
+        <item name="innerMarginEnd">20dp</item>
+        <item name="labelTextAppearance">@style/TGTextAppearance.MineLabel</item>
+        <item name="labelFontFamily">@font/noto_sans_medium</item>
+    </style>
+
+    <style name="TGTextAppearance.Nav">
+        <!--<item name="android:fontFamily">@font/noto_sans_medium</item>-->
+        <!--<item name="android:includeFontPadding">false</item>-->
+    </style>
+
+    <style name="TGButton" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:textColor">#F57A22</item>
+        <item name="android:minHeight">22dp</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:minWidth">56dp</item>
+    </style>
+
+    <style name="TGTextAppearance.ArticleTitle">
+        <item name="tg_font">bold</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:paddingStart">20dp</item>
+        <item name="android:paddingTop">18dp</item>
+        <item name="android:paddingEnd">20dp</item>
+        <item name="android:paddingBottom">18dp</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:letterSpacing">0.06</item>
+        <item name="android:lineSpacingExtra">5dp</item>
+    </style>
+
+    <style name="BehaviorCheckedView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@drawable/selector_behavior_text</item>
+        <item name="android:drawablePadding">3dp</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="TGTextAppearance.AppBarTitle">
+        <item name="android:textSize">30sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TGTextAppearance.AppBarTitle.Small">
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">@font/noto_sans_medium</item>
+    </style>
+
+    <style name="TGTextAppearance.AppBarTitle.Recommend">
+        <item name="android:textSize">27sp</item>
+        <item name="android:letterSpacing">0.04</item>
+    </style>
+
+    <style name="TGTextAppearance.SectionTitle">
+        <item name="android:textColor">@color/textPrimary</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:letterSpacing">0.04</item>
+    </style>
+
+</resources>

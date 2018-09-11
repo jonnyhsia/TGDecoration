@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FF7F27</color>
+    <color name="colorPrimaryDark">#F55018</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="colorRipple">#16FF7F27</color>
+
+    <color name="textPrimary">#DE000000</color>
+    <color name="textSecondary">#8a000000</color>
+    <color name="textCaption">#61000000</color>
+    <color name="textDisable">#42000000</color>
+    <color name="textIgnorable">#29000000</color>
+    <color name="textPrimaryInverse">#FFFFFF</color>
+
+    <color name="iconTint">#DE000000</color>
+    <color name="navPressed">#AA000000</color>
+    <color name="navNormal">@color/textPrimary</color>
+
+    <color name="highlight">#FFE63939</color>
+
+    <color name="controlTint">#FF5747</color>
+    <color name="controlTintTranslucent">#8AFF5747</color>
+    <color name="controlTintDisabled">#33FF5747</color>
+
+    <color name="divider">#09000000</color>
+</resources>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="156dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <com.tugou.decoration.widget.foundation.TGImageView
+        android:id="@+id/imgWare"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        app:tg_aspectRatio="1.33" />
+
+    <com.tugou.decoration.widget.foundation.TGTextView
+        android:id="@+id/tvWareTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="2dp"
+        android:ellipsize="end"
+        android:letterSpacing="0.02"
+        android:lineSpacingExtra="1dp"
+        android:maxLines="2"
+        android:textColor="@color/textPrimary"
+        android:textSize="13sp"
+        app:tg_font="medium"
+        tools:text="VARIERA 盒子 | 节省翻找时间，更多烹饪乐趣" />
+
+</LinearLayout>

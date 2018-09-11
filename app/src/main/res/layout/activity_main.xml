@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".page.home.MainActivity">
+
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/bottom_nav" />
+
+    <com.tugou.decoration.widget.design.BottomNavigation
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bottom_nav"
+        android:layout_gravity="bottom"
+        app:tg_navDivider="@drawable/divider"
+        app:tg_ripple="@drawable/ripple_nav"
+        app:tg_textAppearance="@style/TGTextAppearance.Nav"
+        app:tg_textColor="@drawable/selector_nav_text" />
+
+</FrameLayout>

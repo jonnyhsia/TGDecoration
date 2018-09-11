@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="288dp"
+    android:layout_height="wrap_content"
+    android:clipToPadding="false"
+    android:elevation="8dp"
+    android:layout_marginTop="4dp"
+    android:layout_marginBottom="12dp"
+    android:orientation="vertical">
+
+    <com.tugou.decoration.widget.foundation.TGImageView
+        android:id="@+id/imgCover"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="8dp"
+        app:tg_aspectRatio="2"
+        tools:src="@drawable/placeholder_gray" />
+
+    <com.tugou.decoration.widget.foundation.TGTextView
+        android:id="@+id/tvArticleTitle"
+        style="@style/TGTextAppearance.ArticleTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:lineSpacingExtra="2dp"
+        tools:text="家装参观·都市生活中，宁静而紧凑的家。" />
+
+</LinearLayout>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="16dp"
+    android:paddingBottom="16dp">
+
+    <com.tugou.decoration.widget.foundation.TGTextView
+        android:id="@+id/tvWaresTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:textAppearance="@style/TGTextAppearance.SectionTitle"
+        app:tg_font="bold"
+        tools:text="臻选好物推" />
+
+    <com.tugou.decoration.widget.foundation.TGTextView
+        android:id="@+id/tvMoreWare"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="20dp"
+        android:drawableEnd="@drawable/ic_more_ware"
+        android:drawablePadding="4dp"
+        android:text="查看更多"
+        android:textColor="@color/colorPrimary"
+        app:tg_font="bold" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycleRecommendWare"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:clipToPadding="false"
+        android:nestedScrollingEnabled="false"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp" />
+
+</FrameLayout>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="168dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <com.tugou.decoration.widget.foundation.TGImageView
+        android:id="@+id/imgActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tg_aspectRatio="1.5"
+        tools:src="@drawable/placeholder_rounded_gray" />
+
+    <com.tugou.decoration.widget.foundation.TGTextView
+        android:id="@+id/tvActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:letterSpacing="0.04"
+        android:lineSpacingExtra="2dp"
+        android:maxLines="2"
+        android:textColor="@color/textPrimary"
+        android:textSize="13sp"
+        app:tg_font="medium"
+        tools:text="家装国庆盛典·城中香格里拉大酒店" />
+
+</LinearLayout>

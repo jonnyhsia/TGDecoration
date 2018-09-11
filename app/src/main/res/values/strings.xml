@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Decoration</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="nav_recommend">推荐</string>
+    <string name="nav_muse">装修</string>
+    <string name="nav_mall">臻选</string>
+    <string name="nav_mine">我的</string>
+</resources>

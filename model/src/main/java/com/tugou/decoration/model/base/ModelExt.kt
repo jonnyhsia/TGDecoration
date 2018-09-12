@@ -12,15 +12,15 @@ import java.io.IOException
 
 inline fun <reified T> Retrofit.create(): T = create(T::class.java)
 
-fun <T> Observable<TGResponse<T>>.scheduler(): Observable<TGResponse<T>> =
+internal fun <T> Observable<TGResponse<T>>.scheduler(): Observable<TGResponse<T>> =
         this.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
 
-fun <T> Single<TGResponse<T>>.scheduler(): Single<TGResponse<T>> =
+internal fun <T> Single<TGResponse<T>>.scheduler(): Single<TGResponse<T>> =
         this.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
 
-fun <T> Single<TGResponse<T>>.handleResponse(): Single<T> =
+internal fun <T> Single<TGResponse<T>>.handleResponse(): Single<T> =
         this.handleError()
                 .flatMap {
                     when {
@@ -34,12 +34,12 @@ fun <T> Single<TGResponse<T>>.handleResponse(): Single<T> =
                     }
                 }
 
-fun <T> Single<T>.handleError(): Single<T> =
+internal fun <T> Single<T>.handleError(): Single<T> =
         this.onErrorResumeNext {
             Single.error(if (it is IOException) RuntimeException("网络繁忙") else it)
         }
 
-fun <T> Single<TGResponse<T>>.handleResponseWithDefaultValue(default: T): Single<T> =
+internal fun <T> Single<TGResponse<T>>.handleResponseWithDefaultValue(default: T): Single<T> =
         this.handleError()
                 .flatMap {
                     when {
@@ -53,13 +53,13 @@ fun <T> Single<TGResponse<T>>.handleResponseWithDefaultValue(default: T): Single
                     }
                 }
 
-fun <T> Single<TGResponse<T>>.toHttpSingle(): Single<T> =
+internal fun <T> Single<TGResponse<T>>.toHttpSingle(): Single<T> =
         this.scheduler().handleResponse()
 
-fun <T> Single<TGResponse<T>>.toHttpSingleWithDefaultValue(default: T): Single<T> =
+internal fun <T> Single<TGResponse<T>>.toHttpSingleWithDefaultValue(default: T): Single<T> =
         this.scheduler().handleResponseWithDefaultValue(default)
 
-fun <T> Single<TGResponse<T>>.toHttpCompletable(): Completable =
+internal fun <T> Single<TGResponse<T>>.toHttpCompletable(): Completable =
         this.scheduler()
                 .handleError()
                 .flatMapCompletable {
@@ -76,4 +76,9 @@ fun <T> Single<TGResponse<T>>.toHttpCompletable(): Completable =
 
 inline fun <reified T> Gson.fromJson(json: JsonElement): T {
     return fromJson(json, T::class.java)
+}
+
+internal fun <T> Single<T>.relateToLocal(localSource: Single<T>): Observable<T> {
+    return toObservable()
+            .startWith(localSource.toObservable())
 }

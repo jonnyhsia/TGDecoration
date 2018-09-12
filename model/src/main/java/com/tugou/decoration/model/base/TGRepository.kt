@@ -3,8 +3,11 @@ package com.tugou.decoration.model.base
 import android.content.Context
 import android.os.Build
 import com.facebook.stetho.okhttp3.StethoInterceptor
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import com.tugou.decoration.model.Algorithm
 import com.tugou.decoration.model.BuildConfig
+import com.tugou.decoration.model.base.typeadapter.BooleanSafeAdapter
 import com.tugou.decoration.model.passport.entity.UserModel
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -14,18 +17,22 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.lang.ref.WeakReference
 import java.util.concurrent.TimeUnit
 
-open class TGLogic {
+internal open class TGRepository {
 
     companion object {
 
         @JvmStatic
-        lateinit var sRetrofit: Retrofit
+        internal lateinit var retrofit: Retrofit
 
-        lateinit var contextRef: WeakReference<Context>
+        internal lateinit var contextRef: WeakReference<Context>
+
+        internal lateinit var typeSafeGson: Gson
 
         @JvmStatic
         internal fun initialize(context: Context) {
             contextRef = WeakReference(context)
+
+            typeSafeGson = createTypeSafeGson()
 
             val builder = OkHttpClient.Builder()
                     .connectTimeout(8_000, TimeUnit.MILLISECONDS)
@@ -37,12 +44,18 @@ open class TGLogic {
 
             val okHttpClient = builder.build()
 
-            sRetrofit = Retrofit.Builder()
+            retrofit = Retrofit.Builder()
                     .client(okHttpClient)
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                    .addConverterFactory(GsonConverterFactory.create())
+                    .addConverterFactory(GsonConverterFactory.create(typeSafeGson))
                     .baseUrl("https://api.jtugou.com")
                     .build()
+        }
+
+        private fun createTypeSafeGson(): Gson {
+            return GsonBuilder()
+                    .registerTypeAdapter(Boolean::class.java, BooleanSafeAdapter())
+                    .create()
         }
 
         @JvmStatic

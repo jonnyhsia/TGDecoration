@@ -28,7 +28,7 @@ sealed class MuseModel(val type: Int) {
     data class TipModel(
             val title: String,
             val list: List<DecorProgressTipsModel>
-    ): MuseModel(TYPE_DECOR_TIPS)
+    ) : MuseModel(TYPE_DECOR_TIPS)
 
     /**
      * 灵感文章

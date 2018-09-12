@@ -8,7 +8,12 @@ import retrofit2.http.Query
 
 interface MuseApi {
 
+    /**
+     * 灵感页时间线接口
+     */
     @GET("/muse/timeline")
-    fun getMuseTimeline(@Query("page") page: Int): Single<TGResponse<MuseTimelineJsonModel>>
+    fun getMuseTimeline(
+            @Query("page") page: Int
+    ): Single<TGResponse<MuseTimelineJsonModel>>
 
 }

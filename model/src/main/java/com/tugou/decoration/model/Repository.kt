@@ -1,11 +1,13 @@
 package com.tugou.decoration.model
 
 import android.content.Context
-import com.tugou.decoration.model.base.TGLogic
+import com.tugou.decoration.model.base.TGRepository
 import com.tugou.decoration.model.home.HomeDataSource
-import com.tugou.decoration.model.home.HomeLogic
+import com.tugou.decoration.model.home.HomeRepository
+import com.tugou.decoration.model.mall.MallDataSource
+import com.tugou.decoration.model.mall.MallRepository
 import com.tugou.decoration.model.muse.MuseDataSource
-import com.tugou.decoration.model.muse.MuseLogic
+import com.tugou.decoration.model.muse.MuseRepository
 import com.tugou.decoration.model.passport.PassportDataSource
 import com.tugou.decoration.model.passport.PassportLogic
 
@@ -15,13 +17,16 @@ object Repository {
         get() = PassportLogic
 
     val homeDataSource: HomeDataSource
-        get() = HomeLogic
+        get() = HomeRepository
 
     val museDataSource: MuseDataSource
-        get() = MuseLogic
+        get() = MuseRepository
+
+    val mallDataSource: MallDataSource
+        get() = MallRepository
 
     fun initialize(context: Context) {
-        TGLogic.initialize(context)
+        TGRepository.initialize(context)
         passportDataSource.preload()
     }
 

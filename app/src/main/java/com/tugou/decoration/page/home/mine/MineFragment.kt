@@ -31,8 +31,7 @@ class MineFragment : TGFragment<MineViewModel>() {
         viewModel = getViewModelOf { MineViewModel() }
 
         viewModel.fetchUserInfo()
-        viewModel.fetchMineEntries()
-        viewModel.fetchRecentActivities()
+        viewModel.fetchMineConfig()
 
         entryAdapter.register(MineEntryViewBinder(viewModel))
         activityAdapter.register(RecentActivityViewBinder(viewModel))

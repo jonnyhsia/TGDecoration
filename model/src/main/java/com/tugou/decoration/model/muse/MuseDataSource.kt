@@ -2,9 +2,12 @@ package com.tugou.decoration.model.muse
 
 import com.tugou.decoration.model.base.TGDataSource
 import com.tugou.decoration.model.muse.entity.MuseTimelineModel
-import io.reactivex.Single
+import io.reactivex.Observable
 
 interface MuseDataSource : TGDataSource {
 
-    fun getMuseTimeline(page: Int): Single<MuseTimelineModel>
+    /**
+     * 获取灵感时间线
+     */
+    fun getMuseTimeline(page: Int): Observable<MuseTimelineModel>
 }

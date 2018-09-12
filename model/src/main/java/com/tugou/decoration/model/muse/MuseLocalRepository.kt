@@ -1,53 +1,14 @@
 package com.tugou.decoration.model.muse
 
-import com.google.gson.Gson
-import com.tugou.decoration.model.base.TGLogic
-import com.tugou.decoration.model.base.create
-import com.tugou.decoration.model.base.fromJson
-import com.tugou.decoration.model.base.handleResponse
+import com.tugou.decoration.model.base.TGRepository
 import com.tugou.decoration.model.home.entity.DecorProgressTipsModel
 import com.tugou.decoration.model.home.entity.DecorTipModel
 import com.tugou.decoration.model.muse.entity.*
 import io.reactivex.Single
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
 
-internal object MuseLogic : TGLogic(), MuseDataSource {
+internal object MuseLocalRepository : TGRepository() {
 
-    private val museApi = sRetrofit.create<MuseApi>()
-
-    override fun preload() {
-    }
-
-    override fun getMuseTimeline(page: Int): Single<MuseTimelineModel> {
-        return museApi.getMuseTimeline(page)
-                .subscribeOn(Schedulers.io())
-                .handleResponse()
-                .map { jsonModel ->
-                    val jsonArray = jsonModel.museList
-                    val gson = Gson()
-                    val museList = ArrayList<MuseModel>()
-
-                    for (element in jsonArray) {
-                        val obj = element.asJsonObject
-                        // 根据 obj 的 type 字段, 转换成对应类型的 Model
-                        val muse: MuseModel? = when (obj["type"].asInt) {
-                            TYPE_ARTICLE -> gson.fromJson<MuseModel.ArticleModel>(obj)
-                            TYPE_ALBUM -> gson.fromJson<MuseModel.AlbumModel>(obj)
-                            TYPE_SINGLE_PICTURE -> gson.fromJson<MuseModel.SinglePictureModel>(obj)
-                            TYPE_RECOMMEND_USER -> gson.fromJson<MuseModel.RecommendUserListModel>(obj)
-                            else -> null
-                        }
-                        muse?.let(museList::add)
-                    }
-
-                    MuseTimelineModel(jsonModel.page, jsonModel.total, museList)
-                }
-                .onErrorResumeNext { getLocalMuseTimeline() }
-                .observeOn(AndroidSchedulers.mainThread())
-    }
-
-    private fun getLocalMuseTimeline(): Single<MuseTimelineModel> {
+    internal fun getLocalMuseTimeline(): Single<MuseTimelineModel> {
         val author = AuthorModel(0, "高能的土豆", "http://ou4f31a1x.bkt.clouddn.com/18-9-6/61589954.jpg", "介绍介绍", false)
         val behavior = MuseBehavior(127, 1024, false, true)
 

@@ -5,6 +5,11 @@ data class HomeConfigModel(
         val entries: List<EntryModel>
 )
 
+data class MineConfigModel(
+        val entries: List<EntryModel>,
+        val recentActivities: List<RecentActivityModel>
+)
+
 data class HomeBannerModel(
         val image: String,
         val destination: String

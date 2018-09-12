@@ -26,7 +26,7 @@ class PictureViewBinder(
 
     private val radius = application.dp2px(4f)
 
-    override val itemViewRes=R.layout.item_muse_picture
+    override val itemViewRes = R.layout.item_muse_picture
 
     override fun onCreateViewHolder(parent: ViewGroup, itemView: View): ViewHolder {
         return ViewHolder(itemView)

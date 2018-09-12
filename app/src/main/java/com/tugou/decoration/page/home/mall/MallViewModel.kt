@@ -17,7 +17,10 @@ import com.tugou.decoration.page.home.mall.adapter.RecommendWareDelegate
 import com.tugou.decoration.page.home.mall.adapter.WareCollectionDelegate
 
 class MallViewModel : TGViewModel(), BannerDelegate, HomeEntryDelegate, WareCollectionDelegate, ArticleCollectionDelegate, RecommendWareDelegate, RecommendSubjectDelegate {
+
     private val homeDataSource = Repository.homeDataSource
+    private val mallDataSource = Repository.mallDataSource
+
     internal val mallConfig = MutableLiveData<HomeConfigModel>()
 
     internal val mallRecommend = MutableLiveData<MallRecommendModel>()
@@ -33,7 +36,7 @@ class MallViewModel : TGViewModel(), BannerDelegate, HomeEntryDelegate, WareColl
     }
 
     fun fetchRecommendList() {
-        homeDataSource.getMallRecommend()
+        mallDataSource.getMallRecommend()
                 .subscribe({
                     mallRecommend.postValue(it)
                 }, {

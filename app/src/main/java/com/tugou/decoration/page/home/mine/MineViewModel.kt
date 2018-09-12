@@ -12,18 +12,12 @@ import com.tugou.decoration.model.passport.entity.UserModel
 
 class MineViewModel : TGViewModel(), SharedPreferences.OnSharedPreferenceChangeListener, MineEntryDelegate, RecentActivityDelegate {
 
-    override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
-        if (key == "user_id") {
-            loginUser.postValue(passportDataSource.getLoginUser())
-        }
-    }
-
     private val homeDataSource = Repository.homeDataSource
     private val passportDataSource = Repository.passportDataSource
 
     internal val entries = MutableLiveData<List<EntryModel>>()
-    internal val recentActivities = MutableLiveData<List<RecentActivityModel>>()
 
+    internal val recentActivities = MutableLiveData<List<RecentActivityModel>>()
     internal val loginUser = MutableLiveData<UserModel?>()
 
     init {
@@ -31,31 +25,18 @@ class MineViewModel : TGViewModel(), SharedPreferences.OnSharedPreferenceChangeL
                 .registerOnSharedPreferenceChangeListener(this)
     }
 
-
     fun fetchUserInfo() {
         loginUser.postValue(passportDataSource.getLoginUser())
     }
 
     /**
-     * 获取入口
+     * 获取入口与最新的活动列表
      */
-    fun fetchMineEntries() {
-        homeDataSource.getMineEntries()
+    fun fetchMineConfig() {
+        homeDataSource.getMineConfig()
                 .subscribe({
-                    entries.postValue(it)
-                }, { error ->
-                    error.message?.let { messageHub.postValue(HubMessage.DisplayMsg(it)) }
-                })
-                .addTo(disposables)
-    }
-
-    /**
-     * 获取最新的活动列表
-     */
-    fun fetchRecentActivities() {
-        homeDataSource.getRecentActivities()
-                .subscribe({
-                    recentActivities.postValue(it)
+                    entries.postValue(it.entries)
+                    recentActivities.postValue(it.recentActivities)
                 }, { error ->
                     error.message?.let { messageHub.postValue(HubMessage.DisplayMsg(it)) }
                 })
@@ -72,29 +53,23 @@ class MineViewModel : TGViewModel(), SharedPreferences.OnSharedPreferenceChangeL
     }
 
     fun tapProfile() {
-
-    }
-
-    override fun tapEntry(entry: EntryModel) {
     }
 
     fun tapTugouVip() {
-
     }
 
     /**
      * 点击个人中心入口
      */
-    fun tapEntry(entryPos: Int) {
-        val entryModel = entries.value?.get(entryPos) ?: return
-        messageHub.postValue(HubMessage.RouteMsg(entryModel.destination))
+    override fun tapEntry(entry: EntryModel) {
+        navigate(entry.destination)
     }
 
     /**
      * 点击最近活动
      */
     override fun tapRecentActivity(activity: RecentActivityModel) {
-        messageHub.postValue(HubMessage.RouteMsg(activity.destination))
+        navigate(activity.destination)
     }
 
     fun tapFeedback() {
@@ -103,6 +78,11 @@ class MineViewModel : TGViewModel(), SharedPreferences.OnSharedPreferenceChangeL
     fun tapInviteFriend() {
     }
 
+    override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
+        if (key == "user_id") {
+            loginUser.postValue(passportDataSource.getLoginUser())
+        }
+    }
 
     override fun onCleared() {
         passportDataSource.getPreference()

@@ -1,28 +1,37 @@
 package com.tugou.decoration.model.home
 
 import com.tugou.decoration.model.base.TGDataSource
-import com.tugou.decoration.model.home.entity.*
-import com.tugou.decoration.model.muse.entity.MallRecommendModel
-import io.reactivex.Flowable
+import com.tugou.decoration.model.home.entity.DailyRecommendModel
+import com.tugou.decoration.model.home.entity.HomeConfigModel
+import com.tugou.decoration.model.home.entity.InboxOverviewModel
+import com.tugou.decoration.model.home.entity.MineConfigModel
+import io.reactivex.Observable
 import io.reactivex.Single
 
 interface HomeDataSource : TGDataSource {
 
-    fun getExploreData(): Single<Any>
+    /**
+     * 获取每日推荐
+     */
+    fun getDailyRecommend(): Observable<DailyRecommendModel>
 
-    fun getDailyRecommend(): Single<DailyRecommendModel>
-
-    fun checkInboxUnreadCount(): Single<Int>
-
+    /**
+     * 获取收件箱概览
+     */
     fun getInboxOverview(): Single<InboxOverviewModel>
 
-    fun getMineEntries(): Flowable<List<EntryModel>>
+    /**
+     * 获取灵感页首页配置
+     */
+    fun getMuseConfig(): Observable<HomeConfigModel>
 
-    fun getRecentActivities(): Single<List<RecentActivityModel>>
+    /**
+     * 获取商城页首页配置
+     */
+    fun getMallConfig(): Observable<HomeConfigModel>
 
-    fun getMuseConfig(): Flowable<HomeConfigModel>
-
-    fun getMallConfig(): Flowable<HomeConfigModel>
-
-    fun getMallRecommend(): Flowable<MallRecommendModel>
+    /**
+     * 获取个人中心配置
+     */
+    fun getMineConfig(): Observable<MineConfigModel>
 }
